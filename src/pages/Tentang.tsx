@@ -1,4 +1,4 @@
-import { layananData, teamData, techStack } from "../assets/dummy.js";
+import { layananData, teamData} from "../assets/dummy.js";
 
 // Gambar
 import kantorVimedika from "../assets/images/kantor.png";
@@ -7,24 +7,24 @@ import mockupLaptop from "../assets/images/PixelBook.png";
 
 // Icon
 import { FaArrowRight } from "react-icons/fa";
-import { FaReact, FaLaravel, FaHtml5, FaRedis } from "react-icons/fa";
-import {
-  SiTailwindcss,
-  SiFirebase,
-  SiPostgresql,
-  SiRubyonrails,
-} from "react-icons/si";
+// import { FaReact, FaLaravel, FaHtml5, FaRedis } from "react-icons/fa";
+// import {
+//   SiTailwindcss,
+//   SiFirebase,
+//   SiPostgresql,
+//   SiRubyonrails,
+// } from "react-icons/si";
 
-const techStack = [
-  { name: "React JS", icon: <FaReact size={32} /> },
-  { name: "Ruby on Rails", icon: <SiRubyonrails size={32} /> },
-  { name: "Laravel", icon: <FaLaravel size={32} /> },
-  { name: "Postgresql", icon: <SiPostgresql size={32} /> },
-  { name: "Redis", icon: <FaRedis size={32} /> },
-  { name: "Tailwind CSS", icon: <SiTailwindcss size={32} /> },
-  { name: "HTML 5", icon: <FaHtml5 size={32} /> },
-  { name: "Firebase", icon: <SiFirebase size={32} /> },
-];
+// const techStack = [
+//   { name: "React JS", icon: <FaReact size={32} /> },
+//   { name: "Ruby on Rails", icon: <SiRubyonrails size={32} /> },
+//   { name: "Laravel", icon: <FaLaravel size={32} /> },
+//   { name: "Postgresql", icon: <SiPostgresql size={32} /> },
+//   { name: "Redis", icon: <FaRedis size={32} /> },
+//   { name: "Tailwind CSS", icon: <SiTailwindcss size={32} /> },
+//   { name: "HTML 5", icon: <FaHtml5 size={32} /> },
+//   { name: "Firebase", icon: <SiFirebase size={32} /> },
+// ];
 
 
 const Tentang = () => {
@@ -203,7 +203,7 @@ const Tentang = () => {
       </section>
 
       {/* Tech Stack */}
-      <section className="py-16 px-4 max-w-7xl mx-auto text-center">
+      {/* <section className="py-16 px-4 max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-12">
           Our Tech <span className="text-orange-500">Stack</span>
         </h2>
@@ -221,7 +221,7 @@ const Tentang = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
