@@ -1,3 +1,9 @@
+import iconCustomSoftware from "../assets/images/software.png";
+import iconWebCompany from "../assets/images/webdeisgn.png";
+import iconUIUX from "../assets/images/uiux.png";
+import iconLogoDesign from "../assets/images/logo-design.png";
+import imgTeam from "./images/foto1.png";
+
 
 
 export const SatuSehat = [
@@ -52,5 +58,59 @@ export const Reasons = [
     title: "Transparansi biaya dan waktu pengerjaan",
     description:
       "Sebelum proyek dimulai, kami selalu menyediakan estimasi biaya dan timeline detail",
+  },
+];
+
+export const layananData = [
+  {
+    icon: iconCustomSoftware,
+    title: "Custom Software",
+    description: "Perangkat Lunak Kustom Berbasis Web, Mobile & Desktop",
+  },
+  {
+    icon: iconWebCompany,
+    title: "Web Company",
+    description: "Pembuatan Web Profil Perusahaan & Landing Page",
+  },
+  {
+    icon: iconUIUX,
+    title: "UI/UX Design",
+    description: "Web, Mobile & Desktop Based Custom Software",
+  },
+  {
+    icon: iconLogoDesign,
+    title: "Logo Design",
+    description: "Desain Logo & Pembuatan Paket Ikon",
+  },
+];
+
+export const teamData = [
+  {
+    name: "Romzi Fadach",
+    title: "Chief Operating Officer",
+    quote:
+      "Pastikan mesin berjalan lancar dan pesan sampai ke hati. Kesuksesan bukan hanya soal efisiensi, tapi juga resonansi dengan pasar",
+    image: imgTeam,
+  },
+  {
+    name: "Doni Mulya Syahputra",
+    title: "Chief Technology Officer",
+    quote:
+      "Inovasi bukan sekadar mencipta yang baru, tapi menyelesaikan masalah dengan cara yang luar biasa",
+    image: imgTeam,
+  },
+  {
+    name: "Syahril Caesa Mahira",
+    title: "Chief Marketing Officer",
+    quote:
+      "Peluang besar sering tersembunyi di tempat yang belum dijamah. Tugasmu bukan menunggu datangnya kesempatan, tapi menciptakannya",
+    image: imgTeam,
+  },
+  {
+    name: "Nurul",
+    title: "Head of Engineer",
+    quote:
+      "Koding bisa dikerjakan siapa saja, tapi membangun tim yang solid dan berkualitas hanya bisa dilakukan oleh pemimpin sejati",
+    image: imgTeam,
   },
 ];

@@ -72,7 +72,7 @@ const Home: React.FC = () => {
             <div className="flex justify-center md:justify-start">
               <button className="bg-primary hover:bg-secondary duration-200 group text-white font-semibold px-6 py-2 rounded-full shadow-md flex items-center gap-3">
                 More
-                <span className="bg-white/20 p-2 rounded-full transition-transform duration-300 transform group-hover:rotate-90 translate-x-4">
+                <span className="bg-white/20 p-2 rounded-full transition-transform duration-300 transform -rotate-45 group-hover:rotate-90 translate-x-4">
                   <FaArrowRight className="w-4 h-4" />
                 </span>
               </button>
