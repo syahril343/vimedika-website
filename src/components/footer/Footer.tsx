@@ -1,98 +1,113 @@
+import LogoFooter from "../../assets/images/logoFooter.png";
+
 import {
   FaEnvelope,
   FaInstagram,
   FaTwitter,
-  FaFacebook,
+  FaFacebookF,
   FaWhatsapp,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
-
-// images
-import Logo from "../../assets/images/Logo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-white pt-24 relative">
-      {/* CTA Box */}
-      <div className="absolute left-1/2 -translate-x-1/2 bg-primary text-white rounded-full shadow-lg px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-12 w-[90%] max-w-4xl">
-        <span className="text-base sm:text-lg font-semibold text-center md:text-left">
-          Siap untuk mulai?
-        </span>
-        <button className="bg-white text-primary font-semibold px-8 py-2 rounded-full shadow hover:bg-green-100 transition text-sm sm:text-base">
-          Mulai
-        </button>
-      </div>
+    <footer className="bg-black text-white rounded-3xl px-6 py-10 md:py-12 mt-48">
+      <section className="mb-5 py-12 px-4 md:px-16 ">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          {/* FORM KONTAK */}
+          <form className="space-y-6">
+            <div>
+              <input
+                type="text"
+                placeholder="Nama Lengkap"
+                className="w-full border-b border-gray-400 focus:outline-none placeholder-gray-400 py-2 bg-transparent"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Alamat"
+                className="w-full border-b border-gray-400 focus:outline-none placeholder-gray-400 py-2 bg-transparent"
+              />
+            </div>
+            <div>
+              <textarea
+                placeholder="Pesan"
+                rows={4}
+                className="w-full border-b border-gray-400 focus:outline-none placeholder-gray-400 py-2 bg-transparent resize-none"
+              ></textarea>
+            </div>
+            <div>
+              <button
+                type="submit"
+                className="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full shadow-md transition"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
 
-      {/* Main Footer Content */}
-      <div className="container bg-primary/10 rounded-t-3xl mt-20 md:mt-10 px-6 py-12 md:py-16">
-        <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-sm text-gray-700">
-          {/* Logo & Perusahaan */}
-          <div className="flex flex-col items-start">
-            <img className="w-36" src={Logo} alt="Logo-Vimedika" />
-            <p className="text-lg font-semibold text-black mt-5">
-              PT Visi Media Komputama
-            </p>
-          </div>
-
-          {/* Menu Navigasi */}
-          <div>
-            <h4 className="font-semibold text-gray-900 mb-3">Menu</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="hover:text-primary transition">
-                  Home
-                </Link>
+          {/* KOTAK KONTAK KANAN */}
+          <div className="bg-primary rounded-2xl p-6 text-black shadow-lg relative">
+            <div className="bg-black text-white rounded-xl px-4 py-2 text-center font-semibold text-lg mb-4">
+              Kontak Kami
+            </div>
+            <ul className="space-y-4 mt-4 text-sm">
+              <li className="flex items-center gap-3">
+                <FaEnvelope /> Email
               </li>
-              <li>
-                <Link to="/tentang" className="hover:text-primary transition">
-                  Tentang Kami
-                </Link>
+              <li className="flex items-center gap-3">
+                <FaInstagram /> Instagram
               </li>
-              <li>
-                <Link to="/layanan" className="hover:text-primary transition">
-                  Layanan
-                </Link>
+              <li className="flex items-center gap-3">
+                <FaTwitter /> Twitter
               </li>
-              <li>
-                <Link to="/kontak" className="hover:text-primary transition">
-                  Kontak
-                </Link>
+              <li className="flex items-center gap-3">
+                <FaFacebookF /> Facebook
+              </li>
+              <li className="flex items-center gap-3">
+                <FaWhatsapp /> WhatsApp
               </li>
             </ul>
           </div>
+        </div>
+      </section>
 
-          {/* Layanan */}
-          <div>
-            <h4 className="font-semibold text-gray-900 mb-3">Layanan</h4>
-            <ul className="space-y-2">
-              <li>Custom Software</li>
-              <li>Web Company</li>
-              <li>Logo Design</li>
-              <li>UI/UX Design</li>
-            </ul>
-          </div>
+      {/* Fooer Bawah */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-sm md:text-base">
+        {/* Logo & Deskripsi */}
+        <div>
+          <img src={LogoFooter} alt="logo-footer" className="w-36 mb-4" />
+          <p className="text-white text-md">PT Visi Media Digital Komputama</p>
+        </div>
 
-          {/* Kontak */}
-          <div>
-            <h4 className="font-semibold text-gray-900 mb-3">Kontak</h4>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2">
-                <FaEnvelope className="text-[#F59E0B]" /> Email
-              </li>
-              <li className="flex items-center gap-2">
-                <FaInstagram className="text-[#F59E0B]" /> Instagram
-              </li>
-              <li className="flex items-center gap-2">
-                <FaTwitter className="text-[#F59E0B]" /> Twitter
-              </li>
-              <li className="flex items-center gap-2">
-                <FaFacebook className="text-[#F59E0B]" /> Facebook
-              </li>
-              <li className="flex items-center gap-2">
-                <FaWhatsapp className="text-[#F59E0B]" /> WhatsApp
-              </li>
-            </ul>
-          </div>
+        {/* Menu */}
+        <div>
+          <h3 className="font-semibold text-yellow-500 mb-2">Menu</h3>
+          <ul className="space-y-1 text-gray-300">
+            <li>Home</li>
+            <li>Layanan</li>
+            <li>Tentang Kami</li>
+            <li>FAQ</li>
+            <li>Testimoni</li>
+            <li>Kontak</li>
+          </ul>
+        </div>
+
+        {/* Layanan */}
+        <div>
+          <h3 className="font-semibold text-yellow-500 mb-2">Layanan</h3>
+          <ul className="space-y-1 text-gray-300">
+            <li>ViApotek</li>
+            <li>ViRME</li>
+            <li>ViHealth</li>
+            <li>ViHospital</li>
+          </ul>
+        </div>
+
+        {/* Kontak */}
+        <div>
+          <h3 className="font-semibold text-yellow-500 mb-2">Alamat</h3>
+          <p>Jl. Raya Gudo, No. 101A, Gudo - Jombang</p>
         </div>
       </div>
     </footer>

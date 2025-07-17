@@ -9,7 +9,7 @@ export default function MainLayout({ children }) {
       <Header />
 
       {/* Main Content */}
-      <main className="flex-grow mt-24">
+      <main className="flex-grow mt-3">
         {children}
       </main>
 

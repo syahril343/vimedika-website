@@ -1,8 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaArrowRight, FaCheckCircle } from "react-icons/fa"; //icons
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/autoplay";
 
-import { SatuSehat, Reasons } from "../assets/dummy.js";
+import { SatuSehat, Reasons, testimonials } from "../assets/dummy.js";
+import { SeeMoreButton } from "../components/button/SeeMoreButton";
 // images
 import heroImage from "../assets/images/Hero.png";
 import softwareImg from "../assets/images/software.png";
@@ -23,25 +29,25 @@ interface ServiceItem {
 const services: ServiceItem[] = [
   {
     id: 1,
-    title: "Custom Software",
+    title: "ViApotek",
     description: "Perangkat Lunak Kustom Berbasis Web, Mobile & Desktop",
     icon: softwareImg,
   },
   {
     id: 2,
-    title: "Web Company",
+    title: "ViRME",
     description: "Pembuatan Web Profil Perusahaan & Landing Page",
     icon: webImg,
   },
   {
     id: 3,
-    title: "UI/UX Design",
+    title: "ViHealth",
     description: "Desain antarmuka pengguna dan pengalaman pengguna modern",
     icon: uiuxImg,
   },
   {
     id: 4,
-    title: "Logo Design",
+    title: "ViHospital",
     description: "Desain Logo & Pembuatan Paket Ikon",
     icon: logoImg,
   },
@@ -62,7 +68,7 @@ const Home: React.FC = () => {
           >
             <h1 className="text-3xl sm:text-4xl md:text-[5rem] font-bold text-gray-900 mb-6 leading-tight md:leading-[1.2]">
               Smart Web &<br />
-              App Solutions
+              Medical App Solutions
             </h1>
             <p className="text-gray-700 text-base sm:text-lg md:text-lg mb-6 max-w-xl mx-auto md:mx-0">
               Kami adalah mitra terpercaya dalam membangun sistem aplikasi
@@ -70,12 +76,14 @@ const Home: React.FC = () => {
               kebutuhan bisnis Anda.
             </p>
             <div className="flex justify-center md:justify-start">
-              <button className="bg-primary hover:bg-secondary duration-200 group text-white font-semibold px-6 py-2 rounded-full shadow-md flex items-center gap-3">
-                More
-                <span className="bg-white/20 p-2 rounded-full transition-transform duration-300 transform -rotate-45 group-hover:rotate-90 translate-x-4">
-                  <FaArrowRight className="w-4 h-4" />
-                </span>
-              </button>
+              <a href="#service">
+                <button className="bg-primary hover:bg-secondary duration-200 group text-white font-semibold px-6 py-2 rounded-full shadow-md flex items-center gap-3">
+                  More
+                  <span className="bg-white/20 p-2 rounded-full transition-transform duration-300 transform -rotate-45 group-hover:rotate-90 translate-x-4">
+                    <FaArrowRight className="w-4 h-4" />
+                  </span>
+                </button>
+              </a>
             </div>
           </motion.div>
 
@@ -96,226 +104,447 @@ const Home: React.FC = () => {
       </motion.div>
 
       {/* Services Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-        className="py-12 px-6 md:px-12 mt-8"
-      >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 max-w-7xl mx-auto">
-          {services.map(({ id, icon, title, description }, i) => (
-            <motion.div
-              key={id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: i * 0.15 }}
-              className="relative bg-white border border-primary rounded-[2.5rem] px-6 pt-8 pb-16 flex flex-col"
-            >
-              {/* Icon (kanan atas) */}
-              <div className="absolute -top-6 right-6 bg-white border border-primary p-4 rounded-3xl shadow-sm">
+      <section id="service" className="py-16 px-4 md:px-16 bg-white mt-10">
+        <div className="max-w-7xl mx-auto">
+          {/* Judul */}
+          <h2 className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
+            Produk & Layanan
+          </h2>
+
+          {/* Grid Layanan */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-28">
+            {services.map((service, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl shadow-md p-6 text-center"
+              >
                 <img
-                  src={icon}
-                  alt={title}
-                  className="w-12 h-12 object-contain"
+                  src={service.icon}
+                  alt={service.title}
+                  className="w-12 h-12 mx-auto mb-4"
                 />
+                <h3 className="font-bold text-yellow-500 mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-gray-700">{service.description}</p>
               </div>
-
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-primary mb-4 leading-tight">
-                {title.split(" ")[0]} <br />
-                {title.split(" ").slice(1).join(" ")}
-              </h3>
-
-              {/* Description */}
-              <p className="text-black text-sm sm:text-base leading-relaxed">
-                {description}
-              </p>
-
-              {/* More button */}
-              <button className="group absolute bottom-5 left-1/2 -translate-x-1/2 text-primary text-lg font-normal flex items-center gap-2">
-                <span className="relative flex">
-                  <h5 className="bg-white z-30">More</h5>
-                  <span className="absolute left-6 -translate-x-4 opacity-0 group-hover:translate-x-6 group-hover:opacity-100 transition-all duration-300">
-                    <FaArrowRight className="inline-block w-4 h-4 ml-1" />
-                  </span>
-                </span>
-              </button>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
-      </motion.div>
+        <Link to="/tentang">
+          <div className="mt-10 flex justify-end items-center">
+            <SeeMoreButton />
+          </div>
+        </Link>
+      </section>
 
       {/* Title */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mt-10 text-[2rem] font-bold"
-      >
-        <h1>
-          Why <span className="text-primary">Choose</span> Us?
-        </h1>
-      </motion.div>
+      <section>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mt-10 text-[2rem] font-bold"
+        >
+          {/* Judul */}
+          <h2 className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
+            Kenapa harus kami?
+          </h2>
+        </motion.div>
 
-      {/* Why Choose Us? */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="bg-primary/10 py-16 px-4 sm:px-8 lg:px-24 mt-10 rounded-3xl"
-      >
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          {/* Left Side - List */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full md:w-2/3 space-y-6"
-          >
-            {Reasons.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="flex items-start gap-6"
-              >
-                <div className="flex flex-col items-center">
-                  <div className="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-sm md:text-base">
-                    {item.number}
-                  </div>
-                  {index < Reasons.length - 1 && (
-                    <div className="w-px bg-primary flex-1 mt-1" />
-                  )}
-                </div>
-                <div>
-                  <h4 className="font-semibold text-base md:text-lg text-black">
-                    {item.title}
-                  </h4>
-                  <p className="text-sm md:text-base text-black mt-1">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+        {/* Satu Sehat Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="py-20 px-6 md:px-16 bg-white mt-10"
+        >
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            {/* Left Side: Text */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">
+                Terintegrasi Dengan{" "}
+                <span className="text-primary">Satu Sehat</span>
+              </h2>
 
-          {/* Right Side - Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="hidden md:block w-full md:w-1/3 flex justify-center"
-          >
-            <img
-              src={img2}
-              alt="Why Choose Us"
-              className="max-w-xs md:max-w-sm lg:max-w-md"
-            />
-          </motion.div>
-        </div>
-      </motion.section>
+              <ul className="space-y-6">
+                {SatuSehat.map((point, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start gap-4"
+                  >
+                    <FaCheckCircle className="text-primary w-5 h-5 mt-[0.25rem]" />
+                    <div>
+                      <h4 className="font-semibold text-black text-base md:text-lg mb-1">
+                        {point.title}
+                      </h4>
+                      <p className="text-sm md:text-base text-gray-600 text-justify">
+                        {point.description}
+                      </p>
+                    </div>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
 
-      {/* Satu Sehat Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="py-20 px-6 md:px-16 bg-white mt-10"
-      >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          {/* Left Side: Text */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">
-              Terintegrasi Dengan{" "}
-              <span className="text-primary">Satu Sehat</span>
-            </h2>
+            {/* Right Side: Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.2 }}
+              className="hidden md:block flex justify-center md:justify-end"
+            >
+              <img
+                src={satuSehatImage}
+                alt="Dashboard Integrasi Satu Sehat"
+                className="max-w-full h-auto"
+              />
+            </motion.div>
+          </div>
+        </motion.section>
 
-            <ul className="space-y-6">
-              {SatuSehat.map((point, index) => (
-                <motion.li
+        {/* Tim Profesional Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="bg-primary/10 py-16 px-4 sm:px-8 lg:px-24 mt-10 rounded-3xl"
+        >
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            {/* Left Side - List */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-full md:w-2/3 space-y-6"
+            >
+              {Reasons.map((item, index) => (
+                <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-4"
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="flex items-start gap-6"
                 >
-                  <FaCheckCircle className="text-primary w-5 h-5 mt-[0.25rem]" />
+                  <div className="flex flex-col items-center">
+                    <div className="bg-primary text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-sm md:text-base">
+                      {item.number}
+                    </div>
+                    {index < Reasons.length - 1 && (
+                      <div className="w-px bg-primary flex-1 mt-1" />
+                    )}
+                  </div>
                   <div>
-                    <h4 className="font-semibold text-black text-base md:text-lg mb-1">
-                      {point.title}
+                    <h4 className="font-semibold text-base md:text-lg text-black">
+                      {item.title}
                     </h4>
-                    <p className="text-sm md:text-base text-gray-600 text-justify">
-                      {point.description}
+                    <p className="text-sm md:text-base text-black mt-1">
+                      {item.description}
                     </p>
                   </div>
-                </motion.li>
+                </motion.div>
               ))}
-            </ul>
+            </motion.div>
 
-            <div className="mt-10 md:text-left text-center">
-              <button className="bg-primary hover:bg-hoverBtn text-white px-6 py-3 rounded-full shadow-lg font-semibold transition text-sm sm:text-base md:text-lg">
-                Gabung Sekarang
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Right Side: Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2 }}
-            className="hidden md:block flex justify-center md:justify-end"
-          >
-            <img
-              src={satuSehatImage}
-              alt="Dashboard Integrasi Satu Sehat"
-              className="max-w-full h-auto"
-            />
-          </motion.div>
-        </div>
-      </motion.section>
-
+            {/* Right Side - Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="hidden md:block w-full md:w-1/3 flex justify-center"
+            >
+              <img
+                src={img2}
+                alt="Why Choose Us"
+                className="max-w-xs md:max-w-sm lg:max-w-md"
+              />
+            </motion.div>
+          </div>
+        </motion.section>
+      </section>
       {/* Teks Mobile Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9 }}
-        className="py-20 px-6 md:px-16 bg-white mt-10"
-      >
-        <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
-          {/* Left Text */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9 }}
-            className="text-left w-full md:w-1/2"
-          >
-            <h2 className="text-4xl sm:text-[4rem] md:text-[5rem] -mt-[8rem] md:-mt-0 font-extrabold leading-tight text-black mb-4">
-              Responsive & Expert <br />
-              <span className="text-primary"> Mobile Design</span>
-            </h2>
-          </motion.div>
+      <section>
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          className="py-20 px-6 md:px-16 bg-white mt-10"
+        >
+          <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+            {/* Left Text */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.9 }}
+              className="text-left w-full md:w-1/2"
+            >
+              <h2 className="text-4xl sm:text-[4rem] md:text-[5rem] -mt-[8rem] md:-mt-0 font-extrabold leading-tight text-black mb-4">
+                Responsive & Expert <br />
+                <span className="text-primary"> Mobile Design</span>
+              </h2>
+            </motion.div>
 
-          {/* Right Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="w-full md:w-1/2 flex justify-center"
-          >
-            <img
-              src={img1}
-              alt="Hand holding phone"
-              className="max-w-full h-auto"
-            />
-          </motion.div>
+            {/* Right Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="w-full md:w-1/2 flex justify-center"
+            >
+              <img
+                src={img1}
+                alt="Hand holding phone"
+                className="max-w-full h-auto"
+              />
+            </motion.div>
+          </div>
+          <div className="-mt-36">
+            <button className="py-5 px-8 bg-primary hover:bg-secondary duration-300 shadow-lg hover:shadow-none rounded-full font-semibold text-white text-md md:text-lg">
+              Gabung Sekarang
+            </button>
+          </div>
+        </motion.section>
+      </section>
+
+      {/* Tentang Kami */}
+      <section className="mt-48">
+        <div className="py-10 px-28">
+          <h2 className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
+            Tentang Kami
+          </h2>
+          <p className="text-center px-24">
+            Dengan semangat “Melayani dengan Teknologi, Tumbuh dengan Visi,”
+            kami terus berinovasi untuk membantu fasilitas layanan kesehatan
+            meningkatkan kualitas pelayanan, efisiensi operasional, dan kepuasan
+            pasien.
+          </p>
         </div>
-      </motion.section>
+        {/* Visi Misi */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-16 py-8">
+          {/* Visi */}
+          <div className="bg-primary/10 p-6 rounded-xl shadow-sm">
+            <h3 className="text-lg font-semibold mb-2">Visi</h3>
+            <p>
+              Dengan semangat “Melayani dengan Teknologi, Tumbuh dengan Visi,”
+              kami terus berinovasi untuk membantu fasilitas layanan kesehatan
+              meningkatkan kualitas pelayanan, efisiensi operasional, dan
+              kepuasan pasien.
+            </p>
+          </div>
+
+          {/* Misi */}
+          <div className="bg-primary/10 p-6 rounded-xl shadow-sm">
+            <h3 className="text-lg font-semibold mb-2">Misi</h3>
+            <p>
+              Dengan semangat “Melayani dengan Teknologi, Tumbuh dengan Visi,”
+              kami terus berinovasi untuk membantu fasilitas layanan kesehatan
+              meningkatkan kualitas pelayanan, efisiensi operasional, dan
+              kepuasan pasien.
+            </p>
+          </div>
+        </div>
+
+        {/* Swiper Slide Tim */}
+        <Swiper
+          className="rounded-xl mt-36"
+          modules={[Autoplay]}
+          spaceBetween={24}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+        >
+          {/* Kartu Slide 1 */}
+          <SwiperSlide>
+            <div className="bg-white shadow-lg rounded-xl p-6 w-full relative h-72">
+              <img
+                src="https://via.placeholder.com/150x220"
+                alt="Syahril Caesa Mahira"
+                className="absolute -top-12 right-4 w-28 h-36 object-cover rounded-md"
+              />
+              <div className="mt-28">
+                <h3 className="text-lg font-semibold">Syahril Caesa Mahira</h3>
+                <p className="text-gray-500">Chief Marketing Officer</p>
+                <p className="mt-2 text-sm">
+                  “Peluang besar sering tersembunyi di tempat yang belum
+                  dijamah. Tugasmu bukan menunggu datangnya kesempatan, tapi
+                  menciptakannya”
+                </p>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          {/* Kartu Slide 2 */}
+          <SwiperSlide>
+            <div className="bg-white shadow-lg rounded-xl p-6 w-full relative h-72">
+              <img
+                src="https://via.placeholder.com/150x220"
+                alt="Syahril Caesa Mahira"
+                className="absolute -top-12 right-4 w-28 h-36 object-cover rounded-md"
+              />
+              <div className="mt-28">
+                <h3 className="text-lg font-semibold">Syahril Caesa Mahira</h3>
+                <p className="text-gray-500">Chief Marketing Officer</p>
+                <p className="mt-2 text-sm">
+                  “Peluang besar sering tersembunyi di tempat yang belum
+                  dijamah. Tugasmu bukan menunggu datangnya kesempatan, tapi
+                  menciptakannya”
+                </p>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          {/* Kartu Slide 3 */}
+          <SwiperSlide>
+            <div className="bg-white shadow-lg rounded-xl p-6 w-full relative h-72">
+              <img
+                src="https://via.placeholder.com/150x220"
+                alt="Syahril Caesa Mahira"
+                className="absolute -top-12 right-4 w-28 h-36 object-cover rounded-md"
+              />
+              <div className="mt-28">
+                <h3 className="text-lg font-semibold">Syahril Caesa Mahira</h3>
+                <p className="text-gray-500">Chief Marketing Officer</p>
+                <p className="mt-2 text-sm">
+                  “Peluang besar sering tersembunyi di tempat yang belum
+                  dijamah. Tugasmu bukan menunggu datangnya kesempatan, tapi
+                  menciptakannya”
+                </p>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          {/* Kartu Slide 1 */}
+          <SwiperSlide>
+            <div className="bg-white shadow-lg rounded-xl p-6 w-full relative h-72">
+              <img
+                src="https://via.placeholder.com/150x220"
+                alt="Syahril Caesa Mahira"
+                className="absolute -top-12 right-4 w-28 h-36 object-cover rounded-md"
+              />
+              <div className="mt-28">
+                <h3 className="text-lg font-semibold">Syahril Caesa Mahira</h3>
+                <p className="text-gray-500">Chief Marketing Officer</p>
+                <p className="mt-2 text-sm">
+                  “Peluang besar sering tersembunyi di tempat yang belum
+                  dijamah. Tugasmu bukan menunggu datangnya kesempatan, tapi
+                  menciptakannya”
+                </p>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          {/* Kartu Slide 2 */}
+          <SwiperSlide>
+            <div className="bg-white shadow-lg rounded-xl p-6 w-full relative h-72">
+              <img
+                src="https://via.placeholder.com/150x220"
+                alt="Syahril Caesa Mahira"
+                className="absolute -top-12 right-4 w-28 h-36 object-cover rounded-md"
+              />
+              <div className="mt-28">
+                <h3 className="text-lg font-semibold">Syahril Caesa Mahira</h3>
+                <p className="text-gray-500">Chief Marketing Officer</p>
+                <p className="mt-2 text-sm">
+                  “Peluang besar sering tersembunyi di tempat yang belum
+                  dijamah. Tugasmu bukan menunggu datangnya kesempatan, tapi
+                  menciptakannya”
+                </p>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          {/* Kartu Slide 3 */}
+          <SwiperSlide>
+            <div className="bg-white shadow-lg rounded-xl p-6 w-full relative h-72">
+              <img
+                src="https://via.placeholder.com/150x220"
+                alt="Syahril Caesa Mahira"
+                className="absolute -top-12 right-4 w-28 h-36 object-cover rounded-md"
+              />
+              <div className="mt-28">
+                <h3 className="text-lg font-semibold">Syahril Caesa Mahira</h3>
+                <p className="text-gray-500">Chief Marketing Officer</p>
+                <p className="mt-2 text-sm">
+                  “Peluang besar sering tersembunyi di tempat yang belum
+                  dijamah. Tugasmu bukan menunggu datangnya kesempatan, tapi
+                  menciptakannya”
+                </p>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+        <div className="mt-10 flex justify-end items-center">
+          <SeeMoreButton />
+        </div>
+      </section>
+
+      {/* Testimoni */}
+      <section className="mt-48">
+        <div>
+          <h2 className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
+            Testimoni
+          </h2>
+        </div>
+        {/* Carousel */}
+        <div className="">
+          <Swiper
+            className="rounded-xl"
+            modules={[Autoplay]}
+            spaceBetween={20}
+            slidesPerView={3}
+            loop={true}
+            speed={3000} // kecepatan geser (ms)
+            autoplay={{
+              delay: 0, // tidak ada jeda antar slide
+              disableOnInteraction: false,
+              waitForTransition: false,
+            }}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
+            {testimonials.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-white p-6 rounded-3xl shadow-md mx-auto max-w-sm">
+                  <div className="flex items-center gap-4 mb-4">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-12 h-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <h4 className="font-semibold">{item.name}</h4>
+                      <p className="text-sm text-gray-500">{item.position}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-700 mb-4">"{item.message}"</p>
+                  <p className="text-xs text-gray-400">{item.date}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        <div className="mt-10 flex justify-end items-center">
+          <SeeMoreButton />
+        </div>
+      </section>
     </>
   );
 };

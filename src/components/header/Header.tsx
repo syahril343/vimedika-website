@@ -2,16 +2,20 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../../assets/images/Logo.png";
+import MyButton from "../button/Mybutton";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const { pathname } = useLocation(); // Ambil path aktif
+  const [btnText] = useState("Konsultasi");
 
   const navLinks = [
     { to: "/", label: "Home" },
-    { to: "/tentang", label: "Tentang Kami" },
     { to: "/layanan", label: "Layanan" },
+    { to: "/tentang", label: "Tentang Kami" },
+    { to: "/faq", label: "FaQ" },
+    { to: "/testimoni", label: "Testimoni" },
     { to: "/kontak", label: "Kontak" },
   ];
 
@@ -23,11 +27,11 @@ const Header = () => {
     }`;
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 bg-white/10 backdrop-blur-md shadow-md rounded-b-3xl">
+    <header className="w-full sticky top-3 left-0 z-50 bg-white/10 backdrop-blur-md shadow-md mt-3 rounded-3xl px-4">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-primary">
-          <img className="w-[7rem]" src={Logo} alt="Logo" />
+          <img className="w-36" src={Logo} alt="Logo" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -40,11 +44,7 @@ const Header = () => {
         </nav>
 
         {/* Konsultasi Button */}
-        <div className="hidden md:block">
-          <button className="py-2 px-5 bg-primary hover:bg-secondary text-white text-md font-medium rounded-xl transition duration-200">
-            Konsultasi
-          </button>
-        </div>
+        <MyButton text={btnText} />
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">

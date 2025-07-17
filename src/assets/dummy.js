@@ -114,3 +114,70 @@ export const teamData = [
     image: imgTeam,
   },
 ];
+
+
+export const testimonials = [
+  {
+    name: 'Sarah Wilson',
+    position: 'Worker',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+    image: 'https://randomuser.me/api/portraits/women/65.jpg',
+    date: 'Desember, 2025',
+  },
+  {
+    name: 'Sarah Wilson',
+    position: 'Worker',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+    image: 'https://randomuser.me/api/portraits/women/70.jpg',
+    date: 'Desember, 2025',
+  },
+  {
+    name: 'Muhammad Kareem',
+    position: 'Worker',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+    image: 'https://randomuser.me/api/portraits/men/77.jpg',
+    date: 'Desember, 2025',
+  },
+  {
+    name: 'Sarah Wilson',
+    position: 'Worker',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+    image: 'https://randomuser.me/api/portraits/women/65.jpg',
+    date: 'Desember, 2025',
+  },
+  {
+    name: 'Sarah Wilson',
+    position: 'Worker',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+    image: 'https://randomuser.me/api/portraits/women/70.jpg',
+    date: 'Desember, 2025',
+  },
+  {
+    name: 'Muhammad Kareem',
+    position: 'Worker',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+    image: 'https://randomuser.me/api/portraits/men/77.jpg',
+    date: 'Desember, 2025',
+  },
+  {
+    name: 'Sarah Wilson',
+    position: 'Worker',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+    image: 'https://randomuser.me/api/portraits/women/65.jpg',
+    date: 'Desember, 2025',
+  },
+  {
+    name: 'Sarah Wilson',
+    position: 'Worker',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+    image: 'https://randomuser.me/api/portraits/women/70.jpg',
+    date: 'Desember, 2025',
+  },
+  {
+    name: 'Muhammad Kareem',
+    position: 'Worker',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+    image: 'https://randomuser.me/api/portraits/men/77.jpg',
+    date: 'Desember, 2025',
+  },
+];
