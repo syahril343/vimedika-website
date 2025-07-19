@@ -1,227 +1,254 @@
-import { layananData, teamData} from "../assets/dummy.js";
+// icons
+import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaGlobe } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaLaravel, FaVuejs } from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiDart,
+  SiMongodb,
+  SiMysql,
+  SiTypescript,
+} from "react-icons/si";
 
-// Gambar
-import kantorVimedika from "../assets/images/kantor.png";
-import layananImage from "../assets/images/komisaris.png";
-import mockupLaptop from "../assets/images/PixelBook.png";
+// images
+import heroImg from "../assets/images/office.png";
+import foto1 from "../assets/images/foto1.png";
 
-// Icon
-import { FaArrowRight } from "react-icons/fa";
-// import { FaReact, FaLaravel, FaHtml5, FaRedis } from "react-icons/fa";
-// import {
-//   SiTailwindcss,
-//   SiFirebase,
-//   SiPostgresql,
-//   SiRubyonrails,
-// } from "react-icons/si";
+const icons = [
+  {
+    icon: <FaMapMarkerAlt size={32} />,
+    label: "Jl. Raya Gudo, No. 101A, Gudo - Jombang",
+  },
+  { icon: <FaEnvelope size={32} />, label: "info@vimedika.com" },
+  { icon: <FaPhone size={32} />, label: "(+62) 8518-2267-460" },
+  { icon: <FaGlobe size={32} />, label: "vimedika.com" },
+];
 
-// const techStack = [
-//   { name: "React JS", icon: <FaReact size={32} /> },
-//   { name: "Ruby on Rails", icon: <SiRubyonrails size={32} /> },
-//   { name: "Laravel", icon: <FaLaravel size={32} /> },
-//   { name: "Postgresql", icon: <SiPostgresql size={32} /> },
-//   { name: "Redis", icon: <FaRedis size={32} /> },
-//   { name: "Tailwind CSS", icon: <SiTailwindcss size={32} /> },
-//   { name: "HTML 5", icon: <FaHtml5 size={32} /> },
-//   { name: "Firebase", icon: <SiFirebase size={32} /> },
-// ];
+const teamMembers = [
+  {
+    name: "Dian Purnama Ashari",
+    title: "Chief Executive Officer",
+    quote:
+      "Koding bisa dikerjakan siapa saja, tapi membangun tim yang solid dan berkualitas hanya bisa dilakukan oleh pemimpin sejati",
+    image: foto1,
+    highlight: true,
+  },
+  {
+    name: "Heru Oktafian",
+    title: "Chief Executive Officer",
+    quote:
+      "Koding bisa dikerjakan siapa saja, tapi membangun tim yang solid dan berkualitas hanya bisa dilakukan oleh pemimpin sejati",
+    image: foto1,
+    highlight: true,
+  },
+  {
+    name: "Doni Mulya Syahputra",
+    title: "Chief Technology Office",
+    quote:
+      "Inovasi bukan sekadar mencipta yang baru, tapi menyelesaikan masalah dengan cara yang luar biasa",
+    image: foto1,
+  },
+  {
+    name: "Romzi Fadac",
+    title: "Chief Operating Officer",
+    quote:
+      "Pastikan mesin berjalan lancar dan pesan sampai ke hati. Kesuksesan bukan hanya soal efisiensi, tapi juga resonansi dengan pasar",
+    image: foto1,
+  },
+  {
+    name: "Syahril Caesa Mahira",
+    title: "Chief Marketing Officer",
+    quote:
+      "Pastikan mesin berjalan lancar dan pesan sampai ke hati. Kesuksesan bukan hanya soal efisiensi, tapi juga resonansi dengan pasar",
+    image: foto1,
+  },
+  {
+    name: "Nurul Dwi Arifani",
+    title: "Head Devlead",
+    quote:
+      "Inovasi bukan sekadar mencipta yang baru, tapi menyelesaikan masalah dengan cara yang luar biasa",
+    image: foto1,
+  },
+];
 
+const techStack = [
+  { icon: <SiNextdotjs size={36} />, label: "Next.js" },
+  { icon: <FaReact size={36} />, label: "React" },
+  { icon: <FaLaravel size={36} />, label: "Laravel" },
+  { icon: <FaNodeJs size={36} />, label: "Node.js" },
+  { icon: <SiDart size={36} />, label: "Dart" },
+  { icon: <FaVuejs size={36} />, label: "Vue.js" },
+  { icon: <SiTailwindcss size={36} />, label: "Tailwind" },
+  { icon: <SiMongodb size={36} />, label: "MongoDB" },
+  { icon: <SiMysql size={36} />, label: "MySQL" },
+  { icon: <SiTypescript size={36} />, label: "TypeScript" },
+];
 
 const Tentang = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="w-full px-4 md:px-20 py-16 bg-gradient-to-br from-white via-slate-100 to-green-50 rounded-3xl shadow-lg">
-        <div className="flex flex-col md:flex-row items-center gap-10">
-          {/* Gambar Kantor */}
-          <div className="md:w-1/2">
-            <img
-              src={kantorVimedika}
-              alt="Kantor Vimedika"
-              className="rounded-2xl shadow-md w-full object-cover"
-            />
-          </div>
-
-          {/* Konten Teks */}
-          <div className="md:w-1/2 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-              Melayani dengan Teknologi, <br /> Tumbuh dengan Visi
-            </h2>
-            <p className="text-sm md:text-base mb-6 leading-relaxed text-justify text-gray-700">
-              Vimedika hadir untuk membantu apotek, klinik, dan pelaku usaha
-              kesehatan dengan solusi digital yang efisien dan terintegrasi.
-              Kami percaya bahwa teknologi bukan hanya alat, tapi jembatan untuk
-              memberikan pelayanan yang lebih baik dan berkelanjutan. Bersama
-              mitra, kami tumbuh dengan visi membangun ekosistem kesehatan
-              digital Indonesia.
-            </p>
-
-            <div className="flex justify-center md:justify-start">
-              <button className="bg-primary hover:bg-secondary duration-200 group text-white font-semibold px-6 py-2 rounded-full shadow-md flex items-center gap-3">
-                More
-                <span className="bg-white/20 p-2 rounded-full transition-transform duration-300 transform -rotate-45 group-hover:rotate-90 translate-x-4">
-                  <FaArrowRight className="w-4 h-4" />
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section: Layanan Kami */}
-      <section className="py-20 px-4 md:px-20 bg-white mt-10">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Layanan Kami</h2>
-          <p className="text-sm md:text-base max-w-xl mx-auto">
+      <section className="w-full py-10 px-4 bg-white">
+        <div className="max-w-6xl mx-auto text-center">
+          {/* Title */}
+          <h2
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="800"
+            className="text-3xl md:text-4xl font-bold text-black mb-2"
+          >
+            Tentang Kami
+          </h2>
+          <p
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="800"
+            className="text-black max-w-xl mx-auto mb-8"
+          >
             Kami memberikan layanan pembuatan sistem digital yang modern,
-            inovatif, dan mudah digunakan sesuai dengan kebutuhan anda.
+            inovatif, dan mudah digunakan sesuai dengan kebutuhan anda
           </p>
-        </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-          {/* Kiri */}
-          <div className="space-y-10">
-            {layananData.slice(0, 2).map((item, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-4 p-4 bg-gray-100 rounded-xl"
-              >
-                <img
-                  src={item.icon}
-                  alt={item.title}
-                  className="w-12 h-12 object-contain"
-                />
-                <div>
-                  <h4 className="text-lg font-semibold text-primary">
-                    {item.title}
-                  </h4>
-                  <p className="text-sm">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Gambar Tengah */}
-          <div className="relative rounded-2xl overflow-hidden shadow-md max-w-[90%] mx-auto group">
+          {/* Hero Image */}
+          <div className="relative rounded-[2rem] overflow-hidden">
             <img
-              src={layananImage}
-              alt="Layanan"
-              className="w-full h-full object-cover transform transition duration-700 ease-in-out group-hover:scale-105"
+              data-aos="fade-up"
+              data-aos-easing="linear"
+              data-aos-duration="800"
+              src={heroImg}
+              alt="Vimedika Resepsionis"
+              className="w-full h-auto object-cover"
             />
-
-            <div className="absolute p-4 inset-0 bg-black/50 items-center justify-center opacity-0 group-hover:opacity-100 transition duration-700 ease-in-out">
-              <p className="text-white text-lg font-semibold">Komisaris</p>
-              <p className="text-white text-lg font-semibold">
-                Tulisan Hover Muncul
-              </p>
+          </div>
+          {/* Info Icons */}
+          <div
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="800"
+            className="relative -translate-y-5 md:-translate-y-14 mx-auto w-9/12 bg-white/50 backdrop-blur-lg rounded-2xl shadow-md px-4 py-6"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-full">
+              {icons.map((item, index) => (
+                <div
+                  key={index}
+                  className="group flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-primary rounded-xl px-2 py-6 cursor-default h-full"
+                >
+                  <div className="h-8 flex items-center justify-center">
+                    <div className="text-black group-hover:hidden">
+                      {item.icon}
+                    </div>
+                    <div className="text-white p-3 font-semibold text-xs md:text-sm hidden group-hover:block transition-all duration-300">
+                      {item.label}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Kanan */}
-          <div className="space-y-10">
-            {layananData.slice(2, 4).map((item, index) => (
+      {/* Judul */}
+      <h2 data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="800" className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
+        Tim Kami
+      </h2>
+
+      {/* Foto Tim */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto space-y-12">
+          {/* Card CEO */}
+          {teamMembers
+            .filter((m) => m.highlight)
+            .map((member, index) => (
               <div
+                data-aos="fade-up"
+                data-aos-easing="linear"
+                data-aos-duration="800"
                 key={index}
-                className="flex items-start gap-4 p-4 bg-gray-100 rounded-xl"
+                className="flex flex-col md:flex-row items-center justify-between bg-gray-100 rounded-2xl p-6 md:p-10 shadow-md"
               >
-                <img
-                  src={item.icon}
-                  alt={item.title}
-                  className="w-12 h-12 object-contain"
-                />
-                <div>
-                  <h4 className="text-lg font-semibold text-primary">
-                    {item.title}
-                  </h4>
-                  <p className="text-gray-700 text-sm">{item.description}</p>
+                <div className="md:max-w-2xl text-center md:text-left">
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
+                    {member.name}
+                  </h3>
+                  <p className="text-gray-500 text-sm md:text-base mb-4">
+                    {member.title}
+                  </p>
+                  <blockquote className="text-gray-700 text-base md:text-lg italic">
+                    “{member.quote}”
+                  </blockquote>
                 </div>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-40 h-auto mt-6 md:mt-0 md:w-48 object-contain"
+                />
+              </div>
+            ))}
+
+          {/* Grid untuk anggota tim lainnya */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {teamMembers
+              .filter((m) => !m.highlight)
+              .map((member, index) => (
+                <div
+                  data-aos="fade-up"
+                  data-aos-easing="linear"
+                  data-aos-duration="800"
+                  key={index}
+                  className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-primary/10 rounded-2xl p-6 shadow-sm"
+                >
+                  <div className="flex-1 text-center sm:text-left">
+                    <h4 className="text-lg font-semibold text-gray-800">
+                      {member.name}
+                    </h4>
+                    <p className="text-sm text-gray-500 mb-2">{member.title}</p>
+                    <p className="text-sm text-gray-700 italic">
+                      "{member.quote}"
+                    </p>
+                  </div>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-28 h-auto object-contain"
+                  />
+                </div>
+              ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Judul */}
+      <h2
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="800"
+        className="text-md md:text-xl mt-8 md:mt-28 font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2"
+      >
+        Teknologi Kami
+      </h2>
+
+      {/* Teknologi Kami */}
+      <section className="py-16 px-4 bg-white -mt-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-items-center">
+            {techStack.map((tech, index) => (
+              <div
+                data-aos="flip-left"
+                key={index}
+                className="bg-gray-100 p-6 rounded-2xl flex flex-col items-center justify-center shadow-sm w-full text-center"
+              >
+                <div className="text-gray-700 mb-2">{tech.icon}</div>
+                <p className="text-sm font-medium text-gray-700">
+                  {tech.label}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Our Team */}
-      <section className="py-16 px-4 max-w-7xl mx-auto mt-10">
-        <h2 className="text-3xl font-bold text-center mb-12 relative">
-          <span className="inline-block border-t-2 border-primary w-[30rem] absolute top-1/2 left-0 transform -translate-y-1/2 hidden md:inline-block"></span>
-          Our Team
-          <span className="inline-block border-t-2 border-primary w-[30rem] absolute top-1/2 right-0 transform -translate-y-1/2 hidden md:inline-block"></span>
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {teamData.map((member, index) => (
-            <div
-              key={index}
-              className="flex justify-between items-center bg-gray-100 p-6 rounded-2xl"
-            >
-              <div className="max-w-[65%]">
-                <h4 className="text-xl font-bold">{member.name}</h4>
-                <p className="text-sm text-gray-600 mb-2">{member.title}</p>
-                <p className="text-sm text-black italic">“{member.quote}”</p>
-              </div>
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-28 h-auto object-contain"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Mockup Laptop dan Keterangan Teknologi*/}
-      <section className="py-20 px-4 max-w-7xl mx-auto mt-10">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10">
-          {/* Teks */}
-          <h1 className="font-bold text-3xl md:text-5xl leading-tight md:leading-snug text-center md:text-left">
-            Teknologi Terbaru & <br className="hidden md:block" />{" "}
-            <span className="text-primary">Desain Modern</span>
-          </h1>
-
-          {/* Gambar */}
-          <img
-            src={mockupLaptop}
-            alt="Mockup Laptop"
-            className="w-full max-w-md mx-auto"
-          />
-        </div>
-
-        {/* Deskripsi */}
-        <div className="bg-primary/10 p-6 md:p-8 rounded-xl mt-8 md:mt-[-2rem] mx-auto w-full md:max-w-2xl text-sm text-justify">
-          <p>
-            Kami berkomitmen untuk selalu mengikuti perkembangan teknologi
-            terbaru dalam setiap solusi yang kami kembangkan. Dengan
-            memanfaatkan framework dan tools terkini, kami menghadirkan sistem
-            yang lebih cepat, responsif, aman, dan efisien. Kami tidak hanya
-            membangun aplikasi — kami menciptakan pengalaman digital yang
-            intuitif, menarik, dan mudah digunakan oleh berbagai jenis pengguna.
-          </p>
-        </div>
-      </section>
-
-      {/* Tech Stack */}
-      {/* <section className="py-16 px-4 max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-12">
-          Our Tech <span className="text-orange-500">Stack</span>
-        </h2>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {techStack.map((tech, index) => (
-            <div
-              key={index}
-              className="border border-orange-400 rounded-xl p-4 flex flex-col items-center justify-center hover:shadow-md transition text-orange-500"
-            >
-              {tech.icon}
-              <span className="text-sm font-medium text-gray-800 mt-2">
-                {tech.name}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section> */}
     </>
   );
 };

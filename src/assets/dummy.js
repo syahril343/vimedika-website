@@ -27,6 +27,7 @@ export const SatuSehat = [
     description:
       "Pasien pindah ke faskes lain, riwayat kesehatannya tetap terbaca oleh dokter yang baru.",
   },
+  
 ];
 
 export const Reasons = [

@@ -7,7 +7,7 @@ import MyButton from "../button/Mybutton";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const { pathname } = useLocation(); // Ambil path aktif
+  const { pathname } = useLocation();
   const [btnText] = useState("Konsultasi");
 
   const navLinks = [
@@ -31,10 +31,10 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-primary">
-          <img className="w-36" src={Logo} alt="Logo" />
+          <img src={Logo} alt="Logo" className="w-36" />
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Navigation - Desktop */}
         <nav className="hidden md:flex space-x-6">
           {navLinks.map((item) => (
             <Link key={item.to} to={item.to} className={linkClass(item.to)}>
@@ -44,7 +44,9 @@ const Header = () => {
         </nav>
 
         {/* Konsultasi Button */}
-        <MyButton text={btnText} />
+        <div className="hidden md:block">
+          <MyButton text={btnText} />
+        </div>
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
@@ -67,7 +69,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Navigation - Mobile */}
       {menuOpen && (
         <div className="md:hidden bg-white rounded-2xl px-4 pb-4">
           <nav className="flex flex-col space-y-3 pt-4">
@@ -85,7 +87,6 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-
             <button
               onClick={() => setMenuOpen(false)}
               className="mt-4 bg-primary hover:bg-hoverBtn text-white font-semibold rounded-xl py-2"

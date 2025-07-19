@@ -16,15 +16,27 @@ const Layanan: React.FC = () => {
     <>
       {/* Layanan Kami Section */}
       <section className="text-center py-16 px-4 rounded-3xl bg-gradient-to-b from-teal-100 to-white">
-        <h1 className="font-bold text-3xl md:text-4xl text-black">
+        <h1
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="800"
+          className="font-bold text-3xl md:text-4xl text-black"
+        >
           Layanan Kami
         </h1>
-        <p className="mt-4 mb-10 text-black max-w-2xl mx-auto">
+        <p
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="800"
+          className="mt-4 mb-10 text-black max-w-2xl mx-auto"
+        >
           Kami memberikan layanan pembuatan sistem digital yang modern,
           inovatif, dan mudah digunakan sesuai dengan kebutuhan anda
         </p>
         <div className="flex justify-center">
           <img
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom"
             src={heroImg}
             alt="Layanan Vimedika"
             className="w-full max-w-4xl h-auto rounded-xl"
@@ -33,7 +45,7 @@ const Layanan: React.FC = () => {
       </section>
 
       {/* Marque berjalan */}
-      <section className="mt-">
+      <section data-aos="fade-left" className="mt-">
         <div className="relative overflow-hidden bg-primary/20 py-4">
           <div className="marquee-track flex whitespace-nowrap text-5xl font-bold text-black/20 gap-8">
             <div className="flex shrink-0 animate-marquee gap-8">
@@ -57,17 +69,17 @@ const Layanan: React.FC = () => {
       {/* Aplikasi Section */}
       <section className="py-20 px-4 bg-white mt-32">
         {/* Judul */}
-        <h2 className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
+        <h2 data-aos="fade-up" className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
           Aplikasi
         </h2>
-        <div className="text-center mb-10">
+        <div data-aos="fade-up" className="text-center mb-10">
           <h2 className="text-3xl md:text-5xl font-bold text-primary mt-2">
             <span className="mr-4">Web</span> |{" "}
             <span className="mx-4">Mobile</span> |{" "}
             <span className="ml-4">Desktop</span>
           </h2>
         </div>
-        <div className="flex mt-24 flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+        <div data-aos="fade-right" className="flex mt-24 flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
           {/* Left Image Section */}
           <div className="flex-1">
             <div className="relative w-full h-auto">
@@ -101,9 +113,9 @@ const Layanan: React.FC = () => {
           </div>
 
           {/* Right Feature List */}
-          <div className="flex-1">
-            <h3 className="text-xl font-semibold mb-4 -ml-5">Fitur Umum</h3>
-            <ul className="space-y-2 text-sm md:text-base text-black">
+          <div data-aos="fade-left" className="flex-1">
+            <h3 data-aos="fade-left" className="text-xl font-semibold mb-4 -ml-5">Fitur Umum</h3>
+            <ul data-aos="fade-left" className="space-y-2 text-sm md:text-base text-black">
               <li className="list-disc">
                 <p>
                   Login pengguna berdasarkan peran (pasien, dokter, apotek,
