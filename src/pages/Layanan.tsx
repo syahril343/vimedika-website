@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SatuSehat } from "../assets/dummy.js";
+import { FaCheckCircle } from "react-icons/fa"; //icons
 
 // images
 import heroImg from "../assets/images/imgHeroLayanan.png";
+import satuSehatImage from "../assets/images/imgHero2.png";
 import img1 from "../assets/images/ipad.png";
 import img2 from "../assets/images/macbook.png";
 import img3 from "../assets/images/mobile.png";
@@ -67,9 +70,12 @@ const Layanan: React.FC = () => {
       </section>
 
       {/* Aplikasi Section */}
-      <section className="py-20 px-4 bg-white mt-32">
+      <section className="py-20 px-4 bg-white lg:mt-32">
         {/* Judul */}
-        <h2 data-aos="fade-up" className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
+        <h2
+          data-aos="fade-up"
+          className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2"
+        >
           Aplikasi
         </h2>
         <div data-aos="fade-up" className="text-center mb-10">
@@ -79,7 +85,10 @@ const Layanan: React.FC = () => {
             <span className="ml-4">Desktop</span>
           </h2>
         </div>
-        <div data-aos="fade-right" className="flex mt-24 flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+        <div
+          data-aos="fade-right"
+          className="flex mt-24 flex-col lg:flex-row gap-12 max-w-6xl mx-auto"
+        >
           {/* Left Image Section */}
           <div className="flex-1">
             <div className="relative w-full h-auto">
@@ -114,8 +123,16 @@ const Layanan: React.FC = () => {
 
           {/* Right Feature List */}
           <div data-aos="fade-left" className="flex-1">
-            <h3 data-aos="fade-left" className="text-xl font-semibold mb-4 -ml-5">Fitur Umum</h3>
-            <ul data-aos="fade-left" className="space-y-2 text-sm md:text-base text-black">
+            <h3
+              data-aos="fade-left"
+              className="text-xl font-semibold mb-4 -ml-5"
+            >
+              Fitur Umum
+            </h3>
+            <ul
+              data-aos="fade-left"
+              className="space-y-2 text-sm md:text-base text-black"
+            >
               <li className="list-disc">
                 <p>
                   Login pengguna berdasarkan peran (pasien, dokter, apotek,
@@ -155,6 +172,64 @@ const Layanan: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Satu Sehat Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="py-20 px-6 md:px-16 bg-white lg:mt-10"
+      >
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          {/* Left Side: Text */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">
+              Terintegrasi Dengan{" "}
+              <span className="text-primary">Satu Sehat</span>
+            </h2>
+
+            <ul className="space-y-6">
+              {SatuSehat.map((point, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-start gap-4"
+                >
+                  <FaCheckCircle className="text-primary w-5 h-5 mt-[0.25rem]" />
+                  <div>
+                    <h4 className="font-semibold text-black text-base md:text-lg mb-1">
+                      {point.title}
+                    </h4>
+                    <p className="text-sm md:text-base text-gray-600 text-justify">
+                      {point.description}
+                    </p>
+                  </div>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Right Side: Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.2 }}
+            className="hidden md:block flex justify-center md:justify-end"
+          >
+            <img
+              src={satuSehatImage}
+              alt="Dashboard Integrasi Satu Sehat"
+              className="max-w-full h-auto"
+            />
+          </motion.div>
+        </div>
+      </motion.section>
     </>
   );
 };

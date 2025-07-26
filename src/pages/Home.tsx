@@ -9,12 +9,15 @@ import "swiper/css/autoplay";
 
 import { SatuSehat, Reasons, testimonials } from "../assets/dummy.js";
 import { SeeMoreButton } from "../components/button/SeeMoreButton";
+
+// icons
+import apotek from "../assets/icons/apotek.png";
+import rme from "../assets/icons/rme.png";
+import hospital from "../assets/icons/hospital.png";
+import klinik from "../assets/icons/klinik.png";
+
 // images
 import heroImage from "../assets/images/Hero.png";
-import softwareImg from "../assets/images/software.png";
-import webImg from "../assets/images/webdeisgn.png";
-import uiuxImg from "../assets/images/uiux.png";
-import logoImg from "../assets/images/logo-design.png";
 import satuSehatImage from "../assets/images/imgHero2.png";
 import img1 from "../assets/images/imgHero3.png";
 import img2 from "../assets/images/imgHero1.png";
@@ -31,25 +34,25 @@ const services: ServiceItem[] = [
     id: 1,
     title: "ViApotek",
     description: "Perangkat Lunak Kustom Berbasis Web, Mobile & Desktop",
-    icon: softwareImg,
+    icon: apotek,
   },
   {
     id: 2,
     title: "ViRME",
     description: "Pembuatan Web Profil Perusahaan & Landing Page",
-    icon: webImg,
+    icon: rme,
   },
   {
     id: 3,
     title: "ViHealth",
     description: "Desain antarmuka pengguna dan pengalaman pengguna modern",
-    icon: uiuxImg,
+    icon: klinik,
   },
   {
     id: 4,
     title: "ViHospital",
     description: "Desain Logo & Pembuatan Paket Ikon",
-    icon: logoImg,
+    icon: hospital,
   },
 ];
 
@@ -131,7 +134,7 @@ const Home: React.FC = () => {
             ))}
           </div>
         </div>
-        <Link to="/tentang">
+        <Link to="/layanan">
           <div className="mt-10 flex justify-end items-center">
             <SeeMoreButton />
           </div>
@@ -275,7 +278,7 @@ const Home: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9 }}
-          className="py-20 px-6 md:px-16 bg-white mt-10"
+          className="py-16 px-4 sm:px-6 md:px-16 bg-white mt-10"
         >
           <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
             {/* Left Text */}
@@ -283,9 +286,9 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9 }}
-              className="text-left w-full md:w-1/2"
+              className="text-center md:text-left w-full md:w-1/2"
             >
-              <h2 className="text-4xl sm:text-[4rem] md:text-[5rem] -mt-[8rem] md:-mt-0 font-extrabold leading-tight text-black mb-4">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-black mb-6">
                 Responsive & Expert <br />
                 <span className="text-primary"> Mobile Design</span>
               </h2>
@@ -305,8 +308,10 @@ const Home: React.FC = () => {
               />
             </motion.div>
           </div>
-          <div className="-mt-36">
-            <button className="py-5 px-8 bg-primary hover:bg-secondary duration-300 shadow-lg hover:shadow-none rounded-full font-semibold text-white text-md md:text-lg">
+
+          {/* Button */}
+          <div className="mt-8 flex justify-center md:justify-start lg:-translate-y-64">
+            <button className="py-4 px-6 sm:py-5 sm:px-8 bg-primary hover:bg-secondary duration-300 shadow-lg hover:shadow-none rounded-full font-semibold text-white text-base sm:text-md md:text-lg">
               Gabung Sekarang
             </button>
           </div>
@@ -314,18 +319,19 @@ const Home: React.FC = () => {
       </section>
 
       {/* Tentang Kami */}
-      <section className="mt-48">
-        <div className="py-10 px-28">
-          <h2 className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
+      <section className="">
+        <div className="py-10 px-4 sm:px-8 md:px-28">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-center mb-8 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
             Tentang Kami
           </h2>
-          <p className="text-center px-24">
+          <p className="text-center px-2 sm:px-8 md:px-24 text-sm sm:text-base leading-relaxed">
             Dengan semangat “Melayani dengan Teknologi, Tumbuh dengan Visi,”
             kami terus berinovasi untuk membantu fasilitas layanan kesehatan
             meningkatkan kualitas pelayanan, efisiensi operasional, dan kepuasan
             pasien.
           </p>
         </div>
+
         {/* Visi Misi */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-16 py-8">
           {/* Visi */}
@@ -488,29 +494,31 @@ const Home: React.FC = () => {
             </div>
           </SwiperSlide>
         </Swiper>
-        <div className="mt-10 flex justify-end items-center">
-          <SeeMoreButton />
-        </div>
+        <Link to="/tentang">
+          <div className="mt-10 flex justify-end items-center">
+            <SeeMoreButton />
+          </div>
+        </Link>
       </section>
 
       {/* Testimoni */}
-      <section className="mt-48">
+      <section className="mt-16 lg:mt-48">
         <div>
           <h2 className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
             Testimoni
           </h2>
         </div>
         {/* Carousel */}
-        <div className="">
+        <div className="px-4 sm:px-6 md:px-10 lg:px-20 py-10">
           <Swiper
             className="rounded-xl"
             modules={[Autoplay]}
             spaceBetween={20}
-            slidesPerView={3}
+            slidesPerView={1}
             loop={true}
-            speed={3000} // kecepatan geser (ms)
+            speed={3000}
             autoplay={{
-              delay: 0, // tidak ada jeda antar slide
+              delay: 0,
               disableOnInteraction: false,
               waitForTransition: false,
             }}
@@ -522,7 +530,7 @@ const Home: React.FC = () => {
           >
             {testimonials.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-white p-6 rounded-3xl shadow-md mx-auto max-w-sm">
+                <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-md mx-auto w-full max-w-xs sm:max-w-sm">
                   <div className="flex items-center gap-4 mb-4">
                     <img
                       src={item.image}
@@ -530,20 +538,29 @@ const Home: React.FC = () => {
                       className="w-12 h-12 rounded-full object-cover"
                     />
                     <div>
-                      <h4 className="font-semibold">{item.name}</h4>
-                      <p className="text-sm text-gray-500">{item.position}</p>
+                      <h4 className="font-semibold text-sm sm:text-base">
+                        {item.name}
+                      </h4>
+                      <p className="text-xs sm:text-sm text-gray-500">
+                        {item.position}
+                      </p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-700 mb-4">"{item.message}"</p>
+                  <p className="text-sm sm:text-base text-gray-700 mb-4">
+                    "{item.message}"
+                  </p>
                   <p className="text-xs text-gray-400">{item.date}</p>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-        <div className="mt-10 flex justify-end items-center">
-          <SeeMoreButton />
-        </div>
+
+        <Link to="/testimoni">
+          <div className="mt-10 flex justify-end items-center">
+            <SeeMoreButton />
+          </div>
+        </Link>
       </section>
     </>
   );

@@ -148,15 +148,17 @@ const Tentang = () => {
         </div>
       </section>
 
-      {/* Judul */}
-      <h2 data-aos="fade-up"
-        data-aos-easing="linear"
-        data-aos-duration="800" className="text-md md:text-xl font-semibold text-center mb-12 border-b-2 w-fit mx-auto border-primary px-4 pb-2">
-        Tim Kami
-      </h2>
-
       {/* Foto Tim */}
       <section className="py-16 px-4 bg-white">
+        {/* Judul */}
+        <h2
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="800"
+          className="text-md md:text-xl font-semibold text-center mb-10 border-b-2 w-fit mx-auto border-primary px-4 pb-2"
+        >
+          Tim Kami
+        </h2>
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Card CEO */}
           {teamMembers
