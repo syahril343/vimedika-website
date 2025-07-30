@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
+
 // pages
 import HomePage from "./pages/Home";
 import LayananPage from "./pages/Layanan";
@@ -12,16 +13,20 @@ import FaqPage from "./pages/Faq";
 import TestimoniPage from "./pages/Testimoni";
 import KontakPage from "./pages/Kontak";
 
+// Komponen untuk auto-scroll ke atas saat berpindah halaman
+import ScrollToTop from "./components/ScrollToTop";
+
 const App = () => {
   useEffect(() => {
     AOS.init({
-      duration: 800, // durasi animasi
-      once: true, // animasi hanya muncul sekali
+      duration: 800,
+      once: true,
     });
   }, []);
 
   return (
     <Router>
+      <ScrollToTop />
       <MainLayout>
         <Routes>
           <Route path="/" element={<HomePage />} />
