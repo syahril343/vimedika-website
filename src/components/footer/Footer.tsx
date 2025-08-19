@@ -1,4 +1,5 @@
 import LogoFooter from "../../assets/images/logoFooter.png";
+import { Link } from "react-router-dom";
 
 import {
   FaEnvelope,
@@ -83,13 +84,13 @@ export default function Footer() {
         {/* Menu */}
         <div>
           <h3 className="font-semibold text-yellow-500 mb-2">Menu</h3>
-          <ul className="space-y-1 text-gray-300">
-            <li>Home</li>
-            <li>Layanan</li>
-            <li>Tentang Kami</li>
-            <li>FAQ</li>
-            <li>Testimoni</li>
-            <li>Kontak</li>
+          <ul className="flex flex-col gap-2 text-gray-300 ">
+            <Link to={"/"}>Home</Link>
+            <Link to={"/layanan"}>Layanan</Link>
+            <Link to={"/tentang"}>Tentang Kami</Link>
+            <Link to={"/faq"}>FaQ</Link>
+            <Link to={"/testimoni"}>Testimoni</Link>
+            <Link to={"/kontak"}>Kontak</Link>
           </ul>
         </div>
 

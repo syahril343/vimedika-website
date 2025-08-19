@@ -69,7 +69,7 @@ const Home: React.FC = () => {
             transition={{ duration: 0.9, ease: "easeOut" }}
             className="w-full md:w-1/2 text-center md:text-left"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-[5rem] font-bold text-gray-900 mb-6 leading-tight md:leading-[1.2]">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight md:leading-[1.2]">
               Smart Web &<br />
               Medical App Solutions
             </h1>
